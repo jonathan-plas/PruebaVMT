@@ -76,6 +76,7 @@ public class Login {
             System.out.println("Producto seleccionado: " + productName);
             product.click();
         }
+
         wait_time_clickable("//A[@class='shopping_cart_link']");
         //Carro
         WebElement carro = driver.findElement(By.xpath("//A[@class='shopping_cart_link']"));
@@ -85,19 +86,9 @@ public class Login {
         Thread.sleep(3000);
 
         //Formulario de compra
-        WebElement nombre = driver.findElement(By.id("first-name"));
-        nombre.sendKeys(username);
 
-        WebElement apellido = driver.findElement(By.id("last-name"));
-        apellido.sendKeys("Prueba2");
+        Compra.formulario_compra(driver,usuario);
 
-        WebElement postal = driver.findElement(By.id("postal-code"));
-        postal.sendKeys("12336");
-        Thread.sleep(3000);
-
-        WebElement btncontinua = driver.findElement(By.id("continue"));
-        btncontinua.click();
-        Thread.sleep(3000);
 
         WebElement btnfinish = driver.findElement(By.id("finish"));
         btnfinish.click();
